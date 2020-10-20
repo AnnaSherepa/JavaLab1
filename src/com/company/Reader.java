@@ -6,6 +6,13 @@ import java.util.Iterator;
 
 public class Reader extends Person {
 
+
+
+    private Type access;//store information about access to some type of books
+    private int idTicket;//if student - student ticket, if teacher - work contract
+    private static int lastId;
+    private ArrayList<Record> records;
+
     private class Record {
         private Date created;
         private Book book;
@@ -23,9 +30,9 @@ public class Reader extends Person {
         }
 
         public void show(){
-             book.show();
-             System.out.println(created);
-             librarian.show();
+            book.show();
+            System.out.println(created);
+            librarian.show();
         }
 
         public void setBook(Book book) {
@@ -43,12 +50,6 @@ public class Reader extends Person {
         public Date getCreated() { return created; }
         public Librarian getLibrarian() { return librarian; }
     }
-
-
-    private Type access;//store information about access to some type of books
-    private int idTicket;//if student - student ticket, if teacher - work contract
-    private static int lastId;
-    private ArrayList<Record> records;
 
     public Reader(){
         this.records = new ArrayList<Record>();

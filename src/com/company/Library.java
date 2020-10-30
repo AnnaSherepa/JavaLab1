@@ -4,12 +4,17 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.Iterator;
 
-public class Library {
+public class Library implements LibraryFunctions{
     private ArrayList<Author> authors;
     private ArrayList<Book> books;
     private ArrayList<Reader> readers;
     private ArrayList<Librarian> librarians;
 
+    class ObjectExistInArray extends Exception{
+        public ObjectExistInArray(){
+            super("Даний об'єкт вже існує в списку");
+        }
+    }
 
     public Library(){
         this.librarians = new ArrayList<Librarian>();
@@ -26,16 +31,27 @@ public class Library {
     }
 
 
-    public void setAuthors(ArrayList<Author> authors) {
-        this.authors.addAll(authors);
-    }
+    public void setAuthors(ArrayList<Author> authors) { this.authors.addAll(authors); }
     public void setBooks(ArrayList<Book> books) {
         this.books.addAll(books);
     }
     public void setLibrarians(ArrayList<Librarian> librarians) { this.librarians.addAll(librarians); }
     public void setReaders(ArrayList<Reader> readers) { this.readers.addAll(readers); }
 
-    public void setAuthors(Author authors) { this.authors.add(authors); }
+    public void setAuthors(Author authors) {
+        try {
+            for (Author a: this.authors) {
+                if(a.equals(authors)){
+                    throw new ObjectExistInArray();
+                }
+            }
+
+            this.authors.add(authors);
+        }catch (ObjectExistInArray e){
+            e.getMessage();
+        }
+    }
+
     public void setBooks(Book book) {
         this.books.add(book);
     }
@@ -96,7 +112,7 @@ public class Library {
                 return b;
             }
         }
-        System.out.println("Reader with id="+id+" wass not founded");
+        System.out.println("Reader with id="+id+" was not founded");
         return null;
     }
 

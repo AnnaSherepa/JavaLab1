@@ -1,5 +1,6 @@
 package com.company;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -31,9 +32,17 @@ public class Reader extends Person {
 
         public void show(){
             book.show();
-            System.out.println(created);
+            String date[] = created.toString().split(" ");
+            StringBuilder showDate = new StringBuilder();
+            showDate.append("День: ")
+                    .append(date[2])
+                    .append(" ")
+                    .append(date[1])
+                    .append("\tГод: ")
+                    .append(date[3]);
+            System.out.println(showDate);
             librarian.show();
-        }
+    }
 
         public void setBook(Book book) {
             this.book = new Book();
@@ -76,25 +85,26 @@ public class Reader extends Person {
         if(book.getAccess() == this.access){
             if(book.getNum() > 0){
                 this.records.add(new Record(created, book, librarian));
-                System.out.println("Book \"" + book.getName() + "\" was successful added");
+                System.out.println("Книга \"" + book.getName() + "\" була успішно додана");
             }else{
-                System.out.println("Book \"" + book.getName() + "\" is not in the library");
+                System.out.println("Книга \"" + book.getName() + "\" відсутня у бібліотеці");
             }
 
         }else{
-            System.out.println("Access for book \""+ book.getName() + "\" is denied for this user. \nRequired type of access: " + book.getAccess() + " \t Access of current user: " + this.access);
+            System.out.println("Доступ до книги \""+ book.getName() + "\" відмовлено для поточного користувача. \nНеобхідний тип доступу: " + book.getAccess() + " \t Поточний тип доступу: " + this.access);
         }
     }
 
     public void deleteRecord(int index){
-        if(records.size() <= index || 0 > index){
-            System.out.println("You out of range of list");
-        }else{
+        try{
             Book temp = records.get(index).getBook();
             temp.setNum(temp.getNum()-1);
             records.remove(index);
-            System.out.println("Your record was deleted");
+            System.out.println("Ваш запис було видалено");
+        }catch(IndexOutOfBoundsException e){
+            System.out.println("Помилка видалення. ЗАПИСУ з вказаним індексом не існує");
         }
+
 
     }
 
@@ -111,9 +121,9 @@ public class Reader extends Person {
 
     @Override
     public void show(boolean var) {
-        System.out.format("Reader: %s %s \t\t access: %s\n\n", this.getName(), this.getSurname(), this.access);
+        System.out.format("Читач: %s %s \t\t доступ: %s\n\n", this.getName(), this.getSurname(), this.access);
         if(!records.isEmpty()){
-            System.out.println("List of records:");
+            System.out.println("Список записів:");
             int i = 1;
             Iterator<Record> iterator = records.iterator();
             while (iterator.hasNext()){

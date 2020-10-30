@@ -9,11 +9,11 @@ public class Librarian extends Person {
 
     @Override
     public void show(boolean var) {
-        System.out.println("Librarian");
+        System.out.println("Бібліотекар");
         super.show();
-        System.out.println("Id contract: " + idContract);
-        System.out.println("Phone: " + phoneNumber);
-        System.out.println("Salary: " + salary);
+        System.out.println("Id контракту: " + idContract);
+        System.out.println("Телефон: " + phoneNumber);
+        System.out.println("Заробітня плата : " + salary);
     }
 
     public Librarian(){

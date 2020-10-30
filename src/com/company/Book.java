@@ -68,9 +68,9 @@ public class Book {
             author.show(true);
         }
 
-        System.out.println("\n Description: " + description);
-        System.out.println("Year: " + publishYear);
-        System.out.println("Genre: " + genre);
+        System.out.println("\n Опис: " + description);
+        System.out.println("Рік видання: " + publishYear);
+        System.out.println("Жанр: " + genre);
     }
     public void show(){
         System.out.format("%s\t", name);
@@ -99,4 +99,5 @@ public class Book {
     public String getName() { return name; }
     public Type getAccess() { return access; }
     public int getNum() { return num; }
+
 }

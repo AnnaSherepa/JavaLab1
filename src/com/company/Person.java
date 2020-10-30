@@ -1,14 +1,21 @@
 package com.company;
 
 public abstract class Person{
-    private String name;
-    private String surname;
+    protected String name;
+    protected String surname;
     private String parent;
     private int age;
     private Sex sex;
 
 
     public Person(){}
+    public Person(String parent, int age, Sex sex){
+        this.setName(name);
+        this.setSurname(surname);
+        this.setParent(parent);
+        this.setAge(age);
+        this.setSex(sex);
+    }
 
     public Person(String name, String surname, String parent, int age, Sex sex){
         this.setName(name);
@@ -24,7 +31,16 @@ public abstract class Person{
 
     }
     public void show(boolean var){
-        System.out.println("Name: "+ name +" \tSurname: " + surname + " Age: " + age+" "+sex);
+        StringBuilder stringBuild = new StringBuilder();
+        stringBuild.append("Ім'я: ")
+                .append(name)
+                .append(" \tПрізвище")
+                .append(surname)
+                .append("Вік: ")
+                .append(age)
+                .append(sex);
+
+        System.out.println(stringBuild);
     }
 
     public void setAge(int age) { this.age = age; }

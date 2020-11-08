@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.BitSet;
+
 import java.util.Iterator;
 
 public class Library implements LibraryFunctions{
@@ -117,6 +117,10 @@ public class Library implements LibraryFunctions{
     }
 
     public void showListOfBooks(){
+        if(books.isEmpty()){
+            System.out.println("Список книг порожній");
+            return;
+        }
         int i = 1;
         Iterator<Book> iterator = books.iterator();
         while (iterator.hasNext()){
@@ -126,6 +130,10 @@ public class Library implements LibraryFunctions{
         System.out.println("\n\n\n");
     }
     public void showListOfAuthors(){
+        if(authors.isEmpty()){
+            System.out.println("Список порожній");
+            return;
+        }
         int i = 1;
         Iterator<Author> iterator = authors.iterator();
         while (iterator.hasNext()){
@@ -136,6 +144,10 @@ public class Library implements LibraryFunctions{
     }
 
     public void showListOfReaders(){
+        if(readers.isEmpty()){
+            System.out.println("Список порожній");
+            return;
+        }
         int i = 1;
         Iterator<Reader> iterator = readers.iterator();
         while (iterator.hasNext()){
@@ -146,6 +158,10 @@ public class Library implements LibraryFunctions{
     }
 
     public void showListOfLibrarian(){
+        if(librarians.isEmpty()){
+            System.out.println("Список порожній");
+            return;
+        }
         int i = 1;
         Iterator<Librarian> iterator = librarians.iterator();
         while (iterator.hasNext()){
@@ -167,6 +183,8 @@ public class Library implements LibraryFunctions{
         int i = reader.searchRecordId(book);
         this.searchReaderById(reader.getIdTicket()).deleteRecord(i);
     }
+
+
 
 
 }

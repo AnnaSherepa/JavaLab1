@@ -1,12 +1,8 @@
 package com.company;
 
+import com.company.lab1.*;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class LibraryTest {
 

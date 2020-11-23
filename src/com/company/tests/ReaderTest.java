@@ -1,8 +1,7 @@
 package com.company;
 
+import com.company.lab1.*;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class ReaderTest {
 

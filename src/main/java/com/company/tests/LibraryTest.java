@@ -19,7 +19,6 @@ public class LibraryTest {
     public static void setUp(){
         library = new Library();
         reader = new Reader("Анна", "Шерепа", "Валеріївна", 19, Sex.woman, Type.all);
-
         author1 = new Author("Тарас", "Шевченко","Григорович", 47, Sex.man, 1840, 1861);
         author2 = new Author("Іван", "Франко", "Якович", 60, Sex.man, 1874,1916);
         author3 = new Author("Леся", "Українка","Петрівна", 47, Sex.woman, 1840, 1861);
@@ -33,7 +32,7 @@ public class LibraryTest {
         //library.setAuthors(author3);
 
         library.setBooks(book2);
-    //    library.setBooks(book1);
+        //library.setBooks(book1);
         library.setLibrarians(librarian);
 
         library.setReaders(reader);

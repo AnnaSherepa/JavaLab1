@@ -8,7 +8,6 @@ public class Author extends Person {
     private ArrayList<String> awards;
 
     public Author(){}
-
     public Author(String name, String surname, String parent, int age, Sex sex, int beg_year, int end_year){
         super(name, surname,parent, age, sex);
         this.setBeg_year(beg_year);

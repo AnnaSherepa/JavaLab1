@@ -1,11 +1,9 @@
 package main.java.com.company.tests;
 
 import main.java.com.company.lab1.*;
-
 import org.junit.Test;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.*;
-
 import static org.junit.Assert.*;
 
 public class MockTest {

@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class MockTest {
 
     @Test
-    public void searchReaderById_Compare_IdTicket(){
+    public void searchReaderByIdCompareIdTicket(){
         Library library = new Library();
         Reader reader = Mockito.mock(Reader.class);
         Book b = Mockito.mock(Book.class);
@@ -24,7 +24,7 @@ public class MockTest {
     }
 
     @Test
-    public void deleteRecord_Remove_From() {
+    public void deleteRecordRemoveFrom() {
         Library library = Mockito.mock(Library.class);
 
         Reader r =Mockito.mock(Reader.class);

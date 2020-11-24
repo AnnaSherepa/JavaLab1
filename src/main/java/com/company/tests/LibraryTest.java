@@ -39,127 +39,126 @@ public class LibraryTest {
 
     }
     @Test
-    public void searchLibrarianById() {
+    public void searchLibrarianById_Get_Librarian() {
         Librarian actual = library.searchLibrarianById(0);
         Assert.assertEquals(librarian, actual);
     }
 
     @Test
-    public void searchBookByName() {
+    public void searchBookByName_Get_Book() {
         Book actual = library.searchBookByName("Кобзар");
         Assert.assertEquals(book2, actual);
 
     }
     @Test
-    public void searchBookByName_NULL() {
+    public void searchBookByName_Return_NULL() {
         Book actual = library.searchBookByName("Перебендя");
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchAuthorBySurname() {
+    public void searchAuthorBySurname_Get_Author() {
         Author actual = library.searchAuthorBySurname("Шевченко");
         Assert.assertEquals(actual, author1);
     }
 
 
     @Test
-    public void searchAuthorBySurname_NULL() {
+    public void searchAuthorBySurname_Return_NULL() {
         Author actual = library.searchAuthorBySurname("Українка");
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchLibrarianById_NULL() {
+    public void searchLibrarianById_Return_NULL() {
         Librarian actual = library.searchLibrarianById(-1);
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchReaderByName() {
+    public void searchReaderByName_Get_Reader() {
         Reader actual = library.searchReaderByName("Анна");
         Assert.assertEquals(reader, actual);
     }
 
     @Test
-    public void searchReaderByName_NULL() {
+    public void searchReaderByName_Return_NULL() {
 
         Reader actual = library.searchReaderByName("Марія");
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchReaderById() {
+    public void searchReaderById_Return_Reader() {
         Reader actual = library.searchReaderById(0);
         Assert.assertEquals(reader, actual);
     }
 
     @Test
-    public void searchReaderById_NULL() {
+    public void searchReaderById_Return_NULL() {
         Reader actual = library.searchReaderById(-1);
         Assert.assertNull(actual);
     }
 
 
     @Test
-    public void showListOfBooks() {
+    public void showListOfBooks_Show() {
         library.setBooks(book2);
 
         library.showListOfBooks();
     }
 
     @Test
-    public void showListOfBooks_NULL() {
+    public void showListOfBooks_Show_NULL_list() {
         Library l = new Library();
         l.showListOfBooks();
     }
 
     @Test
-    public void showListOfAuthors() {
+    public void showListOfAuthors_Show() {
         library.showListOfAuthors();
     }
 
 
     @Test
-    public void showListOfAuthors_NULL() {
+    public void showListOfAuthors_Show_NULL() {
         Library l = new Library();
         l.showListOfAuthors();
     }
 
     @Test
-    public void showListOfReaders() {
-
+    public void showListOfReaders_Show() {
         library.setReaders(reader);
         library.showListOfReaders();
     }
 
 
     @Test
-    public void showListOfReaders_NULL() {
+    public void showListOfReaders_Show_NULL_list() {
         Library l = new Library();
         l.showListOfReaders();
     }
 
 
     @Test
-    public void showListOfLibrarian() {
+    public void showListOfLibrarian_Show() {
         library.showListOfLibrarian();
     }
 
 
     @Test
-    public void showListOfLibrarian_NULL() {
+    public void showListOfLibrarian_Show_NULL() {
         Library l = new Library();
         l.showListOfLibrarian();
     }
 
     @Test
-    public void setRecord() {
+    public void setRecord_Add_To_Library() {
         library.setRecord(library.searchReaderById(0), library.searchBookByName("Кобзар"), library.searchLibrarianById(0));
     }
 
     @Test
-    public void deleteRecord() {
+    public void deleteRecord_Remove_From_Library() {
         library.setRecord(library.searchReaderById(0), library.searchBookByName("Кобзар"), library.searchLibrarianById(0));
         Reader r = library.getReaders().get(0);
         r.show(true);

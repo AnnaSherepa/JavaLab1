@@ -61,7 +61,6 @@ public class ReaderTest {
     public void searchRecordId_Return_Id() {
         Reader r = new Reader("Анна", "Шерепа", "Валеріївна", 19, Sex.woman, Type.all);
         Librarian librarian = new Librarian("Олександр", "Мельник", "Іванович", 46, Sex.man, "+067-063-32-21", 456.2);
-
         Author a = new Author("Тарас", "Шевченко","Григорович", 47, Sex.man, 1840, 1861);
         Book book1 = new Book("Кобзар", a, 3, Type.all);
 

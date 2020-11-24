@@ -39,126 +39,126 @@ public class LibraryTest {
 
     }
     @Test
-    public void searchLibrarianById_Get_Librarian() {
+    public void searchLibrarianByIdGetLibrarian() {
         Librarian actual = library.searchLibrarianById(0);
         Assert.assertEquals(librarian, actual);
     }
 
     @Test
-    public void searchBookByName_Get_Book() {
+    public void searchBookByNameGetBook() {
         Book actual = library.searchBookByName("Кобзар");
         Assert.assertEquals(book2, actual);
 
     }
     @Test
-    public void searchBookByName_Return_NULL() {
+    public void searchBookByNameReturnNULL() {
         Book actual = library.searchBookByName("Перебендя");
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchAuthorBySurname_Get_Author() {
+    public void searchAuthorBySurnameGetAuthor() {
         Author actual = library.searchAuthorBySurname("Шевченко");
         Assert.assertEquals(actual, author1);
     }
 
 
     @Test
-    public void searchAuthorBySurname_Return_NULL() {
+    public void searchAuthorBySurnameReturnNULL() {
         Author actual = library.searchAuthorBySurname("Українка");
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchLibrarianById_Return_NULL() {
+    public void searchLibrarianByIdReturnNULL() {
         Librarian actual = library.searchLibrarianById(-1);
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchReaderByName_Get_Reader() {
+    public void searchReaderByNameGetReader() {
         Reader actual = library.searchReaderByName("Анна");
         Assert.assertEquals(reader, actual);
     }
 
     @Test
-    public void searchReaderByName_Return_NULL() {
+    public void searchReaderByNameReturnNULL() {
 
         Reader actual = library.searchReaderByName("Марія");
         Assert.assertNull(actual);
     }
 
     @Test
-    public void searchReaderById_Return_Reader() {
+    public void searchReaderByIdReturnReader() {
         Reader actual = library.searchReaderById(0);
         Assert.assertEquals(reader, actual);
     }
 
     @Test
-    public void searchReaderById_Return_NULL() {
+    public void searchReaderByIdReturnNULL() {
         Reader actual = library.searchReaderById(-1);
         Assert.assertNull(actual);
     }
 
 
     @Test
-    public void showListOfBooks_Show() {
+    public void showListOfBooksShow() {
         library.setBooks(book2);
 
         library.showListOfBooks();
     }
 
     @Test
-    public void showListOfBooks_Show_NULL_list() {
+    public void showListOfBooksShowNULLlist() {
         Library l = new Library();
         l.showListOfBooks();
     }
 
     @Test
-    public void showListOfAuthors_Show() {
+    public void showListOfAuthorsShow() {
         library.showListOfAuthors();
     }
 
 
     @Test
-    public void showListOfAuthors_Show_NULL() {
+    public void showListOfAuthorsShowNULL() {
         Library l = new Library();
         l.showListOfAuthors();
     }
 
     @Test
-    public void showListOfReaders_Show() {
+    public void showListOfReadersShow() {
         library.setReaders(reader);
         library.showListOfReaders();
     }
 
 
     @Test
-    public void showListOfReaders_Show_NULL_list() {
+    public void showListOfReadersShowNULLList() {
         Library l = new Library();
         l.showListOfReaders();
     }
 
 
     @Test
-    public void showListOfLibrarian_Show() {
+    public void showListOfLibrarianShow() {
         library.showListOfLibrarian();
     }
 
 
     @Test
-    public void showListOfLibrarian_Show_NULL() {
+    public void showListOfLibrarianShowNULL() {
         Library l = new Library();
         l.showListOfLibrarian();
     }
 
     @Test
-    public void setRecord_Add_To_Library() {
+    public void setRecordAddToLibrary() {
         library.setRecord(library.searchReaderById(0), library.searchBookByName("Кобзар"), library.searchLibrarianById(0));
     }
 
     @Test
-    public void deleteRecord_Remove_From_Library() {
+    public void deleteRecordRemoveFromLibrary() {
         library.setRecord(library.searchReaderById(0), library.searchBookByName("Кобзар"), library.searchLibrarianById(0));
         Reader r = library.getReaders().get(0);
         r.show(true);
